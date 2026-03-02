@@ -25,4 +25,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 
 models:
   lessons:
-    +materialized: table
+    +materialized: table # Default all SQL models to be materialized as tables (instead of views)
+    +persist_docs:       # Writes all of our column descriptions into BigQuery
+      relation: true
+      columns: true
